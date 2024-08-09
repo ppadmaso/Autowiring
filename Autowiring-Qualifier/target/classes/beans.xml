@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+	<!-- @Autowired annotation can be used for the same purpose We need not 
+		use autowire="byName" in beans.xml if we use @Autowired annotation -->
+
+	<bean id="human"
+		class="com.seleniumexpres.spring.Autowiring_Qualifier.Human">
+
+
+
+	</bean>
+
+	<!-- <bean id="human" class="com.seleniumexpres.spring.Autowiring_Qualifier.Human" 
+		autowire="byName"> Instead of usig this property tag to inject dependencies 
+		we can use autowire which checks and injects the dependencies automatically 
+		<property name="heart" ref="heart"/> </bean> -->
+
+	<!-- In this case byType fails as spring gets two beans in container and 
+		doesn't know which bean to inject -->
+	<bean id="heart"
+		class="com.seleniumexpres.spring.Autowiring_Qualifier.Heart" />
+	<bean id="heartHuman"
+		class="com.seleniumexpres.spring.Autowiring_Qualifier.Heart" />
+
+
+	<!-- byType it needs a setter method to inject dependency ===> autowire="byType" -->
+	<!-- constructor it needs a constructor to inject dependency ===> autowire="constructor" -->
+	<!-- byName it needs a setter method to inject dependency ===> autowire="byName" -->
+
+
+
+
+
+
+
+
+
+
+</beans> 
